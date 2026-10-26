@@ -7,7 +7,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import InstagramIcon from'@mui/icons-material/Instagram';
 import FacebookIcon from'@mui/icons-material/Facebook';
-import WhatsappIcon from'@mui/icons-material/Whatsapp';
+import { FaWhatsapp } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -94,7 +94,7 @@ export default function Home() {
          <div className='email'><EmailIcon/><p>resumebuilder@gmail.com</p></div> 
      <div className='email'><PhoneIcon/><p>7635673892</p></div> 
       <div className='email'><p>Connect With Us</p></div> 
-      <div className='email'><InstagramIcon/><FacebookIcon/><WhatsappIcon/></div> 
+      <div className='email'><InstagramIcon/><FacebookIcon/><FaWhatsapp /></div> 
       </div>
    
     </div>
