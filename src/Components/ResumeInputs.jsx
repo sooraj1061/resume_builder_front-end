@@ -15,10 +15,16 @@ import jobRoles from'../assets/jobRoles.json';
 import jobSkills from '../assets/jobSkills.json';
 import summaries from '../assets/summaries.json';
 import { addResumeAPI } from '../Services/apiServices';
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 const steps = ['Basic Information', 'Contact Details', 'Educational Information','Review & Submit'];
 export default function ResumeInputs({resumeDetails,setResumeDetails}) {
   console.log(resumeDetails);
+  const navigate=useNavigate();
   
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
@@ -162,6 +168,23 @@ export default function ResumeInputs({resumeDetails,setResumeDetails}) {
   const handleSubmitResume=async()=>{
  const response= await addResumeAPI(resumeDetails)
  console.log(response);
+ const resumeId=response.data.id
+
+ console.log(`resume id${resumeId}`);
+ 
+ if(response.status==201){
+  Swal.fire({
+  title: "Good job!",
+  text: "Resume Added Successfully...",
+  icon: "success"
+});
+    setTimeout(()=>{
+      navigate(`/resumes/${resumeId}`)
+    },3000
+
+    )     
+
+ }
  
   }
 
